@@ -1,0 +1,9 @@
+PROJECT_NAME           = "Project Name"             # Имя проекта
+PROJECT_NUMBER         = 0.1.0                      # Версия проекта
+PROJECT_BRIEF          = "Yet another project"      # Краткое описание проекта
+OUTPUT_DIRECTORY       = docs                       # Куда складывать сгенерированную документацию
+OUTPUT_LANGUAGE        = Russian                    # Язык документации
+GENERATE_LATEX         = YES                        # Генерация LaTeX
+INPUT                  = include                # Директории, где искать файлы
+RECURSIVE              = YES                        # Рекурсивный обход директорий
+USE_MATHJAX            = YES                        # Использование
