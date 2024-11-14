@@ -34,7 +34,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Install doxygen
-        run: sudo apt install doxygen && doxygen --version
+        run: sudo apt install doxygen && doxygen graphviz --version
       - name: Create documentation
         run: doxygen
       - name: Upload artifact

@@ -22,6 +22,7 @@ namespace joincpp {
         if constexpr (std::is_integral_v<T>) {
             return std::to_string(value);
         }
+        //TODO: статический метод приведения к строке
         std::string_view arg_name = stringify<T>{}(value);
         return {arg_name.begin(), arg_name.end()};
     }
@@ -35,6 +36,7 @@ namespace joincpp {
     class separator {
     public:
         separator(const char *str, size_t length) : _sep(str, length) {}
+        explicit separator(const char *str) : _sep(str) {}
 
         /**
          * @brief Функция объединения элементов в строку
