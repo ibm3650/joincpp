@@ -40,11 +40,11 @@ struct stringify {
      * @param[in] value Значение, которое нужно преобразовать в строку
      * @return Строковое представление типа T
      */
-    [[nodiscard]] constexpr std::string_view operator()(const T & /*value*/) const noexcept {
+    [[nodiscard]] constexpr std::string operator()(const T & /*value*/) const noexcept {
         constexpr std::string_view sign = function_signature<T>();
         constexpr size_t start = sign.find("function_signature");
         if constexpr (start != std::string_view::npos) {
-            return sign.substr(start + 19, sign.size() - 7 - 19 - start);
+            return sign.substr(start + 19, sign.size() - 7 - 19 - start).data();
         } else {
             return "unknown";
         }

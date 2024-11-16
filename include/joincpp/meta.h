@@ -39,4 +39,13 @@ struct is_container<T, std::void_t<decltype(std::declval<T>().begin())>> : std::
  */
 template<typename T>
 constexpr bool is_container_v = is_container<T>::value;
+
+
+template<typename T, typename = void>
+struct is_array_t : std::false_type {
+};
+
+template<typename T, size_t N>
+struct is_array_t<T[N], T> : std::true_type {
+};
 #endif //JOINCPP_META_H

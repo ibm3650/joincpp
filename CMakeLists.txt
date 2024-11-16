@@ -10,10 +10,10 @@ target_include_directories(joincpp
 
 file(GLOB_RECURSE EXAMPLE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp")
 
-foreach(EXAMPLE_SOURCE_FILE ${EXAMPLE_SOURCES})
+foreach (EXAMPLE_SOURCE_FILE ${EXAMPLE_SOURCES})
     get_filename_component(EXAMPLE_NAME ${EXAMPLE_SOURCE_FILE} NAME_WE)
     add_executable(${EXAMPLE_NAME} ${EXAMPLE_SOURCE_FILE})
     target_link_libraries(${EXAMPLE_NAME} PRIVATE joincpp)
-endforeach()
+endforeach ()
 
 add_subdirectory(test)

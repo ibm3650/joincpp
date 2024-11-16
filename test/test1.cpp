@@ -25,13 +25,15 @@ TEST(IsContainerTest, StandardContainers) {
 
 TEST(IsContainerTest, CustomTypes) {
     // A custom type without begin/end should not be recognized as a container
-    struct NonContainer {};
+    struct NonContainer {
+    };
     EXPECT_FALSE(is_container_v<NonContainer>);
 
     // A custom type with begin/end should be recognized as a container
     struct CustomContainer {
-        int* begin() { return nullptr; }
-        int* end() { return nullptr; }
+        int *begin() { return nullptr; }
+
+        int *end() { return nullptr; }
     };
     EXPECT_TRUE(is_container_v<CustomContainer>);
 }

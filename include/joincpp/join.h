@@ -7,6 +7,7 @@
 #include "meta.h"
 #include "stringify.h"
 
+
 namespace joincpp {
     /**
      * @brief Функция преобразования значения в строку
@@ -19,16 +20,24 @@ namespace joincpp {
      */
     template<typename T>
     [[nodiscard]] constexpr std::string to_string(const T &value) {
-        if constexpr (std::is_integral_v<T>) {
+        if constexpr (std::is_same_v<std::decay_t<std::remove_pointer_t<T>>, char>) {
+            return {value};
+        }
+        if constexpr (is_array_t<T, char>::value) {
+            return {value};
+        }
+        if constexpr (std::is_same_v<std::decay_t<T>, std::string>) {
+            return value;
+        }
+        if constexpr (std::is_integral_v<T> || std::is_floating_point_v<T>) {
             return std::to_string(value);
         }
         //TODO: статический метод приведения к строке
-        std::string_view arg_name = stringify<T>{}(value);
-        return {arg_name.begin(), arg_name.end()};
+        return stringify<T>{}(value);
     }
 
     //TODO: recursive join for nested containers
-    //TODO: join for containers of strings
+    //TODO: поддержка utf-16
     /**
      * @brief Класс-разделитель
      * @details Класс, предназначенный для объединения элементов в строку с разделителем
@@ -36,6 +45,7 @@ namespace joincpp {
     class separator {
     public:
         separator(const char *str, size_t length) : _sep(str, length) {}
+
         explicit separator(const char *str) : _sep(str) {}
 
         /**
@@ -82,7 +92,10 @@ namespace joincpp {
          * @return Объединение элементов в строковом представлении, разделенных разделителем
          */
         template<typename T, size_t N>
-        std::string join(T (&elements)[N]) {
+        std::string join(const T (&elements)[N]) {
+            if constexpr (std::is_same_v<std::decay_t<T>, char>) {
+                return {elements};
+            }
             std::string s;
             for (const auto &element: elements) {
                 s += to_string(element) + _sep;
