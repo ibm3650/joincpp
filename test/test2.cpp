@@ -6,32 +6,21 @@
 #include <string>
 #include <vector>
 
-// Test cases for function_signature
 
-TEST(FunctionSignatureTest, BasicTypes) {
-//    EXPECT_EQ(function_signature<int>(), "int");
-//    EXPECT_EQ(function_signature<double>(), "double");
-//    EXPECT_EQ(function_signature<std::string>(), "std::string");
+TEST(StringifyTest, NonDeclaredFormatter) {
+    std::vector var = {42.0};
+    EXPECT_EQ(stringify<decltype(var)>{}(var), "class std::vector<double,class std::allocator<double> >>(void)");
 }
 
-TEST(FunctionSignatureTest, TemplateTypes) {
-    //EXPECT_EQ(function_signature<std::vector<int>>(), "std::vector<int>");
-  //  EXPECT_EQ(function_signature<std::pair<int, double>>(), "std::pair<int, double>");
+template<>
+struct stringify<std::vector<int>>{
+    std::string operator()(const std::vector<int> &value) const noexcept {
+        return "std::vector<int>";
+    }
+};
+TEST(StringifyTest, DeclaredFormatter) {
+    std::vector var = {42};
+    EXPECT_EQ(stringify<decltype(var)>{}(var), "std::vector<int>");
 }
 
-// Test cases for stringify class
-TEST(StringifyTest, PrimitiveTypes) {
-//    EXPECT_EQ(stringify<int>{}(42), "42");
-//    EXPECT_EQ(stringify<double>{}(3.14), "3.14");
-//    EXPECT_EQ(stringify<char>{}('a'), "a");
-}
 
-TEST(StringifyTest, StdString) {
-  //  EXPECT_EQ(stringify<std::string>::to_string("hello"), "hello");
-  //  EXPECT_EQ(stringify<const char*>::to_string("world"), "world");
-}
-
-TEST(StringifyTest, ContainerTypes) {
-    //std::vector<int> vec = {1, 2, 3};
-//    EXPECT_EQ(stringify<std::vector<int>>::to_string(vec), "[1, 2, 3]");
-}

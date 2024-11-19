@@ -7,6 +7,12 @@
 #include "meta.h"
 #include "stringify.h"
 
+//TODO: static method for stringify
+//TODO: recursive join for nested containers
+//TODO: support utf-16 and utf-32
+//TODO: support for custom string types
+//TODO: utf-8 bte arrays support
+//TODO: translate documentation to english
 
 namespace joincpp {
     /**
@@ -32,12 +38,11 @@ namespace joincpp {
         if constexpr (std::is_integral_v<T> || std::is_floating_point_v<T>) {
             return std::to_string(value);
         }
-        //TODO: статический метод приведения к строке
+
         return stringify<T>{}(value);
     }
 
-    //TODO: recursive join for nested containers
-    //TODO: поддержка utf-16
+
     /**
      * @brief Класс-разделитель
      * @details Класс, предназначенный для объединения элементов в строку с разделителем

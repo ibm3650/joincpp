@@ -21,12 +21,13 @@ TEST(ToStringTest, StdString) {
     EXPECT_EQ(to_string("world"), "world");
 }
 
+//TODO: add test for custom types
 //TEST(ToStringTest, ContainerTypes) {
 //    std::vector<int> vec = {1, 2, 3};
 //    EXPECT_EQ(to_string(vec), "1, 2, 3");
 //}
 
-// Test cases for separator join method
+
 TEST(SeparatorTest, JoinSingleElement) {
     separator sep(", ");
     EXPECT_EQ(sep.join(42), "42");

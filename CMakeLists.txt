@@ -22,6 +22,6 @@ if(BUILD_EXAMPLES)
     endforeach ()
 endif()
 
-if(BUILD_TESTS)
+#if(BUILD_TESTS)
     add_subdirectory(test)
-endif()
+#endif()

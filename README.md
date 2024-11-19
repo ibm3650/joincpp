@@ -2,7 +2,8 @@
 
 ---
 
-<p align="center">Мощная C++ библиотека, реализующая функционал join. Любые типы данных. Простой и понятный интерфейс</p>
+<p align="center">A powerful C++ library that implements join functionality.
+Supports any data types and provides a simple, easy-to-understand interface.</p>
 <p align="center">
 	<img src="https://img.shields.io/github/languages/top/ibm3650/joincpp" alt="">
 	<img src="https://img.shields.io/github/languages/count/ibm3650/joincpp" alt="">
@@ -13,62 +14,60 @@
 </p>
 
 > [!TIP] 
-> Библиотека развивается, любые улучшения, дополнения и коллаборации приветствуются
+> The library is under development, any improvements, additions, and collaborations are welcome.
 
-
-joincpp - это библиотека для C++, которая позволяет производить конкатенацию переменных в строку с разделителем.
-Отличительной чертой библиотеки является поддержка пользовательских типов данных, что позволяет использовать ее в любом проекте.
-Фактически, позволяет сделать то же самое, что и функция `join` в Python.
-Вы буквально можете сделать, например:
-```cpp 
-    ","sep.join(2.3, user_defined_class, "string", 3) ;
-``` 
-И это сработает!
-Данны могут быть даже разных типов для одного вызова join. Поддерживается широкий список перегрузок.
-Например, использование массивов или векторов в качестве аргументов функции join.
+joincpp is a C++ library that allows you to concatenate variables into a string with a delimiter.
+A key feature of this library is its support for user-defined data types, making it suitable for use in any project.
+In essence, it replicates the functionality of Python's `join` function.
+You can literally do the following, for example:
+```cpp
+","sep.join(2.3, user_defined_class, "string", 3);
+```
+And it will work!
+Data types can even vary within a single `join` call. A wide range of overloads is supported, allowing the use of arrays, vectors, and other types as arguments.
 ---
 
 
 ## Key Features
-Библиотеку выгодно отличают на фоне аналогов следующие ключевые особенности:
-- Поддержка пользовательских типов данных
-- Простой и понятный интерфейс
-- Поддержка широкого списка перегрузок
-- Doxygen документация
-- Поддержка C++17
-- Поддержка CMake
-- Библиотека является header-only
+The library stands out favorably from its analogues due to the following features:
+- Support for user-defined data types
+- Simple and easy-to-understand interface
+- A wide variety of overloads
+- Doxygen documentation
+- C++17 compatibility
+- CMake support
+- Header-only implementation
 
 ## Getting Started
 
-1. Клонируйте репозиторий 
+1. Clone the repository
 
 ```bash
 git clone https://github.com/ibm3650/joincpp.git
 ```
 
-2. Подключите с помощью cmake
+2. Include the library in your project using CMake
 
 ```cmake
 target_link_libraries(${PROJECT_NAME} PRIVATE joincpp)
 ```
 
-3. Укажите файл заголовка
+3. Declare the  header in your code
 
 ```cpp
 #include "joincpp/join.h"
 ```
 
-4.
-- Также можете ознакомиться с [примерами в соответсвующее папке](https://github.com/ibm3650/joincpp/tree/main/examples), 
-для быстрого старта. Для сборки выполните
+4. Additional resources
+- You can explore [examples in corresponding folder](https://github.com/ibm3650/joincpp/tree/main/examples), 
+- for a quick start. To build the examples, execute:
 ```bash
 cmake joincpp -DBUILD_EXAMPLES=ON
 make
 ./example1 && ./example2
 ```
 
-- Для сборки тестов выполните
+- To build and run the tests, execute:
 ```bash
 cmake joincpp -DBUILD_TESTS=ON
 make
@@ -77,7 +76,7 @@ make
 
 ## Examples
 <details>
-<summary>Пример базового использования с различными данными</summary>
+<summary>Example of using with basic types</summary>
 
 ```cpp
     std::vector<int> v0 = {1, 2, 3};
@@ -106,7 +105,7 @@ make
 </details>
 
 <details>
-<summary>Пример применения с пользовательскими типами</summary>
+<summary>Example with user-defined types</summary>
 
 ```cpp
 
@@ -144,21 +143,20 @@ return 0;
 </details>
 
 ## Architecture
-Репозиторий содержит следующие директории:
-- `include` - заголовочные файлы библиотеки
-- `src` - исходный код библиотеки
-- `test` - тесты библиотеки
-- `docs` - документация библиотеки
-- `examples` - примеры использования библиотеки
+Repository contains the following folders:
+- `include` - include files of the library
+- `test` - tests of the library
+- `docs` - documentation of the library
+- `examples` - examples of using the library
 
 ## Contributing
-Библиотека развивается, любые улучшения, дополнения и коллаборации приветствуются
+The library is under development, any improvements, additions, and collaborations are welcome.
 
 ## Testing
-Для тестов используется фреймворк Google.Tests. Исходный код тестов находится в директории test.
-Тесты нацелены на повышение качества кода и повышение отказоустойчивости.
-Для запуска достаточно запустить исполняемый файл после сборки
-([Ознакомьтесь детальнее с пунктом 4](https://github.com/ibm3650/joincpp/tree/dev?tab=readme-ov-file#getting-started))
+For testing, the Google Test framework is used. The source code for the tests is located in the test directory.
+The tests aim to improve code quality and enhance fault tolerance.
+To execute the tests, simply run the binary file.
+([Explore more details in the article](https://github.com/ibm3650/joincpp/tree/dev?tab=readme-ov-file#getting-started))
 
 
 ## Copyright
