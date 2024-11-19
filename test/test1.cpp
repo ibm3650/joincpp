@@ -37,3 +37,11 @@ TEST(IsContainerTest, CustomTypes) {
     };
     EXPECT_TRUE(is_container_v<CustomContainer>);
 }
+
+
+TEST(IsArrayTest, CompatibleTypes){
+    char arr[] = "test";
+    EXPECT_TRUE((is_array_t<char[1], char>::value));
+    EXPECT_TRUE((is_array_t<decltype(arr), char>::value));
+    EXPECT_FALSE((is_array_t<char*, char>::value));
+}

@@ -1,10 +1,11 @@
-PROJECT_NAME           = "joincpp"             # Имя проекта
-PROJECT_NUMBER         = 0.1.0                      # Версия проекта
-PROJECT_BRIEF          = "Библиотека C++, реализующая функционал функции join  из python c удобным и понятным интерфейсом.
-Широкая поддержка перегрузок"      # Краткое описание проекта
-OUTPUT_DIRECTORY       = docs                       # Куда складывать сгенерированную документацию
-OUTPUT_LANGUAGE        = Russian                    # Язык документации
-GENERATE_LATEX         = YES                        # Генерация LaTeX
-INPUT                  = include                # Директории, где искать файлы
-RECURSIVE              = YES                        # Рекурсивный обход директорий
-USE_MATHJAX            = YES                        # Использование
+PROJECT_NAME           = "joincpp"
+PROJECT_NUMBER         = 0.1.0
+PROJECT_BRIEF          = "C++ library that implements the functionality of Python's join function with a comfortable \
+ and easy-to-understand interface. Wide spectre of the overloading"
+OUTPUT_DIRECTORY       = docs
+OUTPUT_LANGUAGE        = English
+GENERATE_LATEX         = YES
+INPUT                  = include
+RECURSIVE              = YES
+USE_MATHJAX            = YES
+

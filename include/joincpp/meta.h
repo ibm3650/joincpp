@@ -48,4 +48,7 @@ struct is_array_t : std::false_type {
 template<typename T, size_t N>
 struct is_array_t<T[N], T> : std::true_type {
 };
+
+template<typename T, typename U>
+constexpr bool is_array_t_v = is_array_t<T, U>::value;
 #endif //JOINCPP_META_H
